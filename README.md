@@ -5,7 +5,7 @@ This repository includes the separate files that compose my dashboard. The main 
 
 __Some of the features that I'm most happy with and proud of__:
 
-* Masthead includes swiping left/right to quickly see the front door cam or the driveway in order to see whose car is blocking who.
+* Masthead includes swiping left/right to quickly see the front door cam or the driveway in order to see whose car is blocking whom.
 
 * The camera view cycles through cameras surveillance-style (demo video is sped up during the camera view).
 

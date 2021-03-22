@@ -1,0 +1,78 @@
+background: center / cover no-repeat fixed  url('/local/lovelace/bg_long.png?v=1')
+kiosk_mode:
+  mobile_settings:
+    hide_header: true
+views:
+  - icon: 'mdi:printer'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:button-card'
+            size: 25px
+            icon: 'mdi:close'
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/0
+            styles:
+              card:
+                - width: 40px
+                - height: 40px
+                - background-color: 'rgba(255,255,255,0)'
+                - box-shadow: none
+              icon:
+                - margin-left: px
+          - type: 'custom:vertical-stack-in-card'
+            title: ''
+            cards:
+              - type: markdown
+                content: >
+                  <strong>Canon MX470 Status:</strong> {{
+                  states('sensor.canon_mx470') | capitalize() }}</br></br>
+                  <strong>Ink Levels</strong>
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: rgba(0,0,0,0.0);
+                      box-shadow:none;
+                      color: white;
+                      margin-bottom: -25px;
+                    }
+              - type: 'custom:bar-card'
+                columns: 2
+                direction: up
+                entities:
+                  - color: '#1a1a1a'
+                    entity: sensor.canon_mx470_black
+                    name: Black
+                  - color: DarkCyan
+                    name: Color
+                    entity: sensor.canon_mx470_color
+                height: 200px
+                max: 100
+                min: 0
+                padding: 2px
+                positions:
+                  icon: 'off'
+                  indicator: 'off'
+                  title: outside
+                  minmax: 'off'
+                  value: inside
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: rgba(0,0,0,0.0);
+                      color: white;
+                    }
+            card_mod:
+              style: |
+                ha-card {
+                  width: 92%;
+                  margin: auto;
+                  border-radius: 12px;
+                  background: rgba(255,255,255,0.1);
+                  color: white;
+                  --paper-item-icon-color: white;
+                  margin-bottom: 15px;
+                }
+title: Printer

@@ -1,0 +1,257 @@
+background: center / cover no-repeat fixed  url('/local/lovelace/bg_long.png?v=1')
+kiosk_mode:
+  mobile_settings:
+    hide_header: true
+views:
+  - icon: 'mdi:robot-vacuum'
+    panel: false
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:button-card'
+            size: 25px
+            icon: 'mdi:close'
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/0
+            styles:
+              card:
+                - width: 40px
+                - height: 40px
+                - background-color: 'rgba(255,255,255,0)'
+                - box-shadow: none
+              icon:
+                - margin-left: px
+          - type: 'custom:vacuum-card'
+            entity: vacuum.arturito
+            image: /local/lovelace/arturito_500a.png
+            show_toolbar: true
+            show_status: true
+            compact_view: false
+            show_name: true
+            stats:
+              default:
+                - attribute: filter_left
+                  unit: hours
+                  subtitle: Filter
+                - attribute: side_brush_left
+                  unit: hours
+                  subtitle: Side brush
+                - attribute: main_brush_left
+                  unit: hours
+                  subtitle: Main brush
+                - attribute: sensor_dirty_left
+                  unit: hours
+                  subtitle: Sensors
+              cleaning:
+                - attribute: cleaned_area
+                  unit: ft2
+                  subtitle: Cleaning area
+                - attribute: cleaning_time
+                  unit: minutes
+                  subtitle: Cleaning time
+            card_mod:
+              style: |
+                ha-card {
+                  width: 95%;
+                  margin: auto;
+                  /* margin-right: 14px;
+                  margin-left: 15px; */
+                  border-radius: 12px !important;
+                 }
+                 .preview {
+                   background: rgba(255, 255, 255, 0.3) !important;
+                   background: url('/local/lovelace/wood_floor.png') !important;
+                   background-position: center !important;
+                   background-repeat: no-repeat !important;
+                   background-size: cover;
+                 }
+                 .vacuum {
+                   image-rendering: auto !important;
+                 }
+                 .vacuum.docked {
+                   filter: grayscale(1);
+                   opacity: 80% !important;
+                 }
+                 .header {
+                   background: rgba(0, 0, 0, 0.3) !important;
+                 }
+                 .stats {
+                   background: rgba(0, 0, 0, 0.3) !important;
+                 }
+                 .status-text {
+                   color: rgba(0, 0, 0, 0.7) !important;
+                   font-weight: bold;
+                   font-size: 16px;
+                 }
+                 .battery {
+                   font-weight: normal !important;
+                 }
+                 .toolbar {
+                   background: rgba(255, 255, 255, 0.7) !important;
+                 }
+                 .toolbar ha-icon-button {
+                   color: rgba(0, 0, 0, 0.7) !important;
+                 }
+                 .toolbar paper-button {
+                   color: rgba(0, 51, 204, 1) !important;
+                 }
+                 .toolbar ha-icon {
+                   color: rgba(0, 51, 204, 1) !important;
+                 }
+          - type: 'custom:mod-card'
+            card_mod:
+              style: |
+                ha-card {
+                  width: 95%;
+                  margin: auto;
+                }
+            card:
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  aspect_ratio: 2/1
+                  card_size: 4
+                  name: Front
+                  entity: switch.vac_front
+                  show_icon: false
+                  styles:
+                    card:
+                      - background: 'rgba(255,255,255,.1)'
+                - type: 'custom:button-card'
+                  aspect_ratio: 2/1
+                  card_size: 4
+                  name: Family Rm
+                  entity: switch.vac_family_rm
+                  show_icon: false
+                  styles:
+                    card:
+                      - background: 'rgba(255,255,255,.1)'
+                - type: 'custom:button-card'
+                  aspect_ratio: 2/1
+                  card_size: 4
+                  name: Kitchen
+                  entity: switch.vac_kitchen
+                  show_icon: false
+                  styles:
+                    card:
+                      - background: 'rgba(255,255,255,.1)'
+                - type: 'custom:button-card'
+                  aspect_ratio: 2/1
+                  card_size: 4
+                  name: Office
+                  entity: switch.vac_office
+                  show_icon: false
+                  styles:
+                    card:
+                      - background: 'rgba(255,255,255,.1)'
+            entity: vacuum.arturito
+          - type: 'custom:mod-card'
+            card_mod:
+              style: |
+                ha-card {
+                  width: 95%;
+                  margin: auto;
+                }
+            card:
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  aspect_ratio: 2/1
+                  card_size: 4
+                  name: Master
+                  entity: switch.vac_master
+                  show_icon: false
+                  styles:
+                    card:
+                      - background: 'rgba(255,255,255,.1)'
+                - type: 'custom:button-card'
+                  aspect_ratio: 2/1
+                  card_size: 4
+                  name: Josh's
+                  entity: switch.vac_josh
+                  show_icon: false
+                  styles:
+                    card:
+                      - background: 'rgba(255,255,255,.1)'
+                - type: 'custom:button-card'
+                  aspect_ratio: 2/1
+                  card_size: 4
+                  name: Guest
+                  entity: switch.vac_guest
+                  show_icon: false
+                  styles:
+                    card:
+                      - background: 'rgba(255,255,255,.1)'
+                - type: 'custom:button-card'
+                  aspect_ratio: 2/1
+                  card_size: 4
+                  name: Cruz's
+                  entity: switch.vac_cruz
+                  show_icon: false
+                  styles:
+                    card:
+                      - background: 'rgba(255,255,255,.1)'
+            entity: vacuum.arturito
+          - type: markdown
+            content: >
+              <strong>Tasks to complete: {{ states('counter.vac_tasks')
+              }}</strong>
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgba(0,0,0,0);
+                  box-shadow: none
+                }
+          - type: picture-glance
+            entities: []
+            camera_image: camera.arturito_map
+            card_mod:
+              style: |
+                ha-card {
+                  width: 95%;
+                  margin: auto;
+                  /* margin-right: 14px;
+                  margin-left: 15px; */
+                  border-radius: 12px !important;
+                 }
+                .box {
+                  background: rgba(255,255,255,0) !important;
+                }
+          - type: 'custom:mod-card'
+            card_mod:
+              style: |
+                ha-card {
+                  width: 95%;
+                  margin: auto;
+                  padding-bottom: 10px !important;
+                }
+            card:
+              type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  aspect_ratio: 2/1
+                  card_size: 4
+                  name: Daily
+                  entity: switch.vac_daily
+                  show_icon: false
+                  styles:
+                    card:
+                      - background: 'rgba(255,255,255,.1)'
+                - type: 'custom:gap-card'
+                  height: null
+                  size: null
+                - type: 'custom:gap-card'
+                  height: null
+                  size: null
+                - type: 'custom:button-card'
+                  aspect_ratio: 2/1
+                  card_size: 4
+                  name: Reset
+                  entity: switch.vac_reset
+                  show_icon: false
+                  styles:
+                    card:
+                      - background: 'rgba(255,255,255,.1)'
+title: Vacuum

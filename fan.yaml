@@ -1,0 +1,202 @@
+background: center / cover no-repeat fixed  url('/local/lovelace/bg_lt_p.png')
+kiosk_mode:
+  mobile_settings:
+    hide_header: true
+views:
+  - icon: 'mdi:fan'
+    panel: false
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:button-card'
+            size: 25px
+            icon: 'mdi:close'
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/0
+            styles:
+              card:
+                - width: 40px
+                - height: 40px
+                - background-color: 'rgba(255,255,255,0)'
+                - box-shadow: none
+              icon:
+                - margin-left: px
+          - type: 'custom:homekit-card'
+            home: false
+            title: Home
+            useBrightness: true
+            useTemperature: true
+            titleColor: '#FFF'
+            statePositionTop: true
+            style: |
+              :host {
+                --tile-background: rgba(255, 255, 255, 0.1);
+                --tile-border-radius: 12px;
+                --tile-width: 100px;
+                --tile-height: 100px;
+                --tile-on-background: rgba(255, 255, 255, 0.7);
+
+                --tile-name-text-color: rgba(255, 255, 255, 0.8);
+                --tile-on-name-text-color: rgba(0, 0, 0, 1);
+
+                --tile-state-text-color: rgba(255, 255, 255, 0.8);
+                --tile-on-state-text-color: rgba(0, 0, 0, 1);
+
+                --tile-state-changed-text-color: rgb(134, 134, 134);
+                --tile-unavailable-state-text-color: rgba(255, 255, 255, 1);
+
+                --tile-value-text-color: rgba(255, 0, 0, 1);
+
+
+                --tile-icon-color: rgba(255, 255, 255, 0.8);
+                --tile-on-icon-color: rgba(255,204,110,1.0);
+                /* #f7d959; */
+                font-family: Arial;
+              }
+            entities:
+              - title: ''
+                entities:
+                  - entity: input_boolean.family_room_fan_light_state
+                    name: Light
+                    wider: true
+                    widerSize: 3
+                    hold_action:
+                      action: null
+                  - card: 'custom:button-card'
+                    halfheight: true
+                    noPadding: true
+                    hide: |
+                      [[[ 
+                        if (states['fan.family_room_fan'].state == "on")
+                         return false;
+                        else
+                         return true;
+                      ]]]
+                    tap_action:
+                      action: call-service
+                      service: fan.set_percentage
+                      service_data:
+                        entity_id: fan.family_room_fan
+                        percentage: 1
+                    hold_action:
+                      action: null
+                    cardOptions:
+                      size: 25%
+                      name: Low
+                      icon: 'mdi:fan'
+                      styles:
+                        card:
+                          - border-radius: 12px
+                          - box-shadow: none
+                          - color: |
+                              [[[ 
+                                if (states['fan.family_room_fan'].attributes.percentage == "1")
+                                  return "rgba(0,0,0,1)";
+                                return "rgba(255,255,255,1)";
+                              ]]]
+                          - background-color: |
+                              [[[ 
+                                if (states['fan.family_room_fan'].attributes.percentage == "1")
+                                  return "rgba(255,255,255,0.1)";
+                                return "rgba(0,0,0,0.55)";
+                              ]]]
+                        icon:
+                          - color: |
+                              [[[ 
+                                if (states['fan.family_room_fan'].attributes.percentage == "1")
+                                  return "rgba(0,0,0,1)";
+                                return "rgba(255,255,255,1.0)";
+                              ]]]
+                  - card: 'custom:button-card'
+                    halfheight: true
+                    noPadding: true
+                    hide: |
+                      [[[ 
+                        if (states['fan.family_room_fan'].state == "on")
+                         return false;
+                        else
+                         return true;
+                      ]]]
+                    tap_action:
+                      action: call-service
+                      service: fan.set_percentage
+                      service_data:
+                        entity_id: fan.family_room_fan
+                        percentage: 50
+                    hold_action:
+                      action: null
+                    cardOptions:
+                      size: 25%
+                      name: Med
+                      icon: 'mdi:fan'
+                      styles:
+                        card:
+                          - border-radius: 12px
+                          - box-shadow: none
+                          - color: |
+                              [[[ 
+                                if (states['fan.family_room_fan'].attributes.percentage == "50")
+                                  return "rgba(0,0,0,1)";
+                                  return "rgba(255,255,255,1)";
+                              ]]]
+                          - background-color: |
+                              [[[ 
+                                if (states['fan.family_room_fan'].attributes.percentage == "50")
+                                  return "rgba(255,255,255,0.1)";
+                                return "rgba(0,0,0,0.55)";
+                              ]]]
+                        icon:
+                          - color: |
+                              [[[ 
+                                if (states['fan.family_room_fan'].attributes.percentage == "50")
+                                  return "rgba(0,0,0,1)";
+                                return "rgba(255,255,255,1.0)";
+                              ]]]
+                  - card: 'custom:button-card'
+                    halfheight: true
+                    noPadding: true
+                    hide: |
+                      [[[ 
+                        if (states['fan.family_room_fan'].state == "on")
+                         return false;
+                        else
+                         return true;
+                      ]]]
+                    tap_action:
+                      action: call-service
+                      service: fan.set_percentage
+                      service_data:
+                        entity_id: fan.family_room_fan
+                        percentage: 100
+                    hold_action:
+                      action: null
+                    cardOptions:
+                      size: 25%
+                      name: High
+                      icon: 'mdi:fan'
+                      styles:
+                        card:
+                          - border-radius: 12px
+                          - box-shadow: none
+                          - color: |
+                              [[[ 
+                                if (states['fan.family_room_fan'].attributes.percentage == "100")
+                                  return "rgba(0,0,0,1)";
+                                return "rgba(255,255,255,1)";
+                              ]]]
+                          - background-color: |
+                              [[[ 
+                                if (states['fan.family_room_fan'].attributes.percentage == "100")
+                                  return "rgba(255,255,255,0.1)";
+                                return "rgba(0,0,0,0.55)";
+                              ]]]
+                        icon:
+                          - color: |
+                              [[[ 
+                                if (states['fan.family_room_fan'].attributes.percentage == "100")
+                                  return "rgba(0,0,0,1)";
+                                return "rgba(255,255,255,1)";
+                              ]]]
+title: Fan

@@ -1,0 +1,3305 @@
+background: center / cover no-repeat fixed  url('/local/lovelace/bg_long.png')
+kiosk_mode:
+  mobile_settings:
+    hide_header: true
+swipe_nav:
+  wrap: false
+  animate: swipe
+  swipe_amount: 10
+views:
+  - title: TV - Family Rm
+    path: tv-family
+    visible:
+      - user: d871b4b8fa18df6e3ea7cf641
+      - user: adafc39c4733451fa975858c6
+      - user: ef8551138df645acab3b193b2
+      - user: d5bd3c44e884450aacbaf0a76
+      - user: e3947a74b2a141e9ab708c565
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:button-card'
+            size: 25px
+            icon: 'mdi:close'
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/0
+            styles:
+              card:
+                - width: 40px
+                - height: 40px
+                - background-color: 'rgba(255,255,255,0)'
+                - box-shadow: none
+                - position: sticky
+                - z-index: 99
+          - type: picture-elements
+            elements:
+              - type: image
+                title: LED
+                image: /local/remotes/led_1x.png
+                tap_action: none
+                hold_action: none
+                style:
+                  width: 35px
+                  top: 3.5%
+                  left: 25%
+                  border: solid 0px gray
+              - type: image
+                title: Family Room TV
+                image: /local/remotes/name_family.png
+                tap_action: none
+                hold_action: none
+                style:
+                  width: 25%
+                  top: 3.5%
+                  left: 77%
+                  border: solid 0px gray
+              - type: image
+                title: Power
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.family_room_tv_toggle
+                hold_action: none
+                style:
+                  width: 50px
+                  top: 3.3%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Previous
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_family_rm
+                  service_data:
+                    command_1: back
+                    command_2: back
+                hold_action: none
+                style:
+                  width: 135px
+                  height: 50px
+                  top: 8%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                title: Home
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_tv
+                    command: home
+                hold_action: none
+                style:
+                  width: 135px
+                  height: 50px
+                  top: 8%
+                  left: 70%
+                  border: solid 0px gray
+              - type: image
+                title: Guide
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: guide
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 13%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                title: Info
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: info
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 13%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Exit
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: exit
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 13%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                title: Up
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_family_rm
+                  service_data:
+                    command_1: up
+                    command_2: up
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 19.4%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Left
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_family_rm
+                  service_data:
+                    command_1: left
+                    command_2: left
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 25.3%
+                  left: 26%
+                  border: solid 0px gray
+              - type: image
+                title: OK
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_family_rm
+                  service_data:
+                    command_1: select
+                    command_2: select
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 25.3%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Right
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_family_rm
+                  service_data:
+                    command_1: right
+                    command_2: right
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 25.3%
+                  left: 74%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Down
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_family_rm
+                  service_data:
+                    command_1: down
+                    command_2: down
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 31.2%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Record
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: record
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 43px
+                  top: 30.8%
+                  left: 74.2%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Menu
+                tap_action:
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: menu
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 57.5%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: TV
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.family_room_tv
+                    source: "Cable\_box"
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 57.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: List
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: list
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 57.5%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Back
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_family_rm
+                  service_data:
+                    command_1: replay
+                    command_2: replay
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 46%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Stop
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: stop
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 46%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Options
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_family_rm
+                  service_data:
+                    command_1: advance
+                    command_2: info
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 46%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Rewind
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_family_rm
+                  service_data:
+                    command_1: rew
+                    command_2: reverse
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 95px
+                  top: 52%
+                  left: 20%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Play/Pause
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_family_rm
+                  service_data:
+                    command_1: pause
+                    command_2: play
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 80px
+                  top: 52%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Fast-Forward
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_family_rm
+                  service_data:
+                    command_1: ffwd
+                    command_2: forward
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 95px
+                  top: 52%
+                  left: 80%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Vol Dn
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_down
+                  service_data:
+                    entity_id: media_player.denon_avr
+                  hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 37%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Mute
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_mute
+                  service_data:
+                    entity_id: media_player.denon_avr
+                    is_volume_muted: false
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 37%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Vol Up
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_up
+                  service_data:
+                    entity_id: media_player.denon_avr
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 37%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Ch Dn
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: chandown
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 41.5%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Ch Prev
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: prev
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 41.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Ch Up
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: chanup
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 41.5%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Red
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: red
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 50px
+                  top: 61.5%
+                  left: 20%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Green
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: green
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 61.5%
+                  left: 40.7%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Yellow
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: yellow
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 61.5%
+                  left: 59.9%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Blue
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: blue
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 61.5%
+                  left: 80%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 1
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: 1
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 65.5%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 2
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: 2
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 65.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 3
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: 3
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 65.5%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 4
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: 4
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 70.2%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 5
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: 5
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 70.2%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 6
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: 6
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 70.2%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 7
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: 7
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 74.8%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 8
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: 8
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 74.8%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 9
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: 9
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 74.8%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Cast
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.denon_avr
+                    source: Chromecast
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 79.3%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 0
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.family_room_dtv
+                    command: 0
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 79.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Turntable
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.denon_avr
+                    source: Turntable
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 79.3%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Netflix
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.family_room_tv
+                    source: Netflix
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 84.2%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Disney+
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.family_room_tv
+                    source: Disney Plus
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 84.2%
+                  left: 70%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Hulu
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.family_room_tv
+                    source: Hulu
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 89.7%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: JW Broadcasting
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.family_room_tv
+                    source: JW Broadcasting
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 89.7%
+                  left: 70%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Prime Video
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.family_room_tv
+                    source: Prime Video
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 95.2%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: HBO Max
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.family_room_tv
+                    source: HBO Max
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 95.2%
+                  left: 70%
+                  border: solid 0px gray
+            image: /local/remotes/uni_famroom_tv.jpg?v=2
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgb(16,30,36);
+                  top: -55px;
+                  margin-bottom: -55px;
+                }
+  - title: TV - Cruz's Rm
+    path: tv-cruz
+    visible:
+      - user: d5bd3c44e884450aacbaf0a76
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:button-card'
+            size: 25px
+            icon: 'mdi:close'
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/0
+            styles:
+              card:
+                - width: 40px
+                - height: 40px
+                - background-color: 'rgba(255,255,255,0)'
+                - box-shadow: none
+                - position: sticky
+                - z-index: 99
+          - type: picture-elements
+            elements:
+              - type: image
+                title: LED
+                image: /local/remotes/led_2x.png
+                tap_action: none
+                hold_action: none
+                style:
+                  width: 35px
+                  top: 3.5%
+                  left: 25%
+                  border: solid 0px gray
+              - type: image
+                title: Cruz's TV
+                image: /local/remotes/name_cruz.png
+                tap_action: none
+                hold_action: none
+                style:
+                  width: 25%
+                  top: 3.5%
+                  left: 76.5%
+                  border: solid 0px gray
+              - type: image
+                title: Power
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.cruz_room_tv_toggle
+                hold_action: none
+                style:
+                  width: 50px
+                  top: 3.3%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Previous
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_cruz_rm
+                  service_data:
+                    command_1: back
+                    command_2: back
+                hold_action: none
+                style:
+                  width: 135px
+                  height: 50px
+                  top: 8%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                title: Home
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_tv
+                    command: home
+                hold_action: none
+                style:
+                  width: 135px
+                  height: 50px
+                  top: 8%
+                  left: 70%
+                  border: solid 0px gray
+              - type: image
+                title: Guide
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: guide
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 13%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                title: Info
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: info
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 13%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Exit
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: exit
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 13%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                title: Up
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_cruz_rm
+                  service_data:
+                    command_1: up
+                    command_2: up
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 19.4%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Left
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_cruz_rm
+                  service_data:
+                    command_1: left
+                    command_2: left
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 25.3%
+                  left: 26%
+                  border: solid 0px gray
+              - type: image
+                title: OK
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_cruz_rm
+                  service_data:
+                    command_1: select
+                    command_2: select
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 25.3%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Right
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_cruz_rm
+                  service_data:
+                    command_1: right
+                    command_2: right
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 25.3%
+                  left: 74%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Down
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_cruz_rm
+                  service_data:
+                    command_1: down
+                    command_2: down
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 31.2%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Record
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: record
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 43px
+                  top: 30.8%
+                  left: 74.2%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Menu
+                tap_action:
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: menu
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 57.5%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: TV
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.cruz_tv
+                    source: "Cable\_box"
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 57.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: List
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: list
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 57.5%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Back
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_cruz_rm
+                  service_data:
+                    command_1: replay
+                    command_2: replay
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 46%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Stop
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: stop
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 46%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Options
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_cruz_rm
+                  service_data:
+                    command_1: advance
+                    command_2: info
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 46%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Rewind
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_cruz_rm
+                  service_data:
+                    command_1: rew
+                    command_2: reverse
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 95px
+                  top: 52%
+                  left: 20%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Play/Pause
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_cruz_rm
+                  service_data:
+                    command_1: pause
+                    command_2: play
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 80px
+                  top: 52%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Fast-Forward
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_cruz_rm
+                  service_data:
+                    command_1: ffwd
+                    command_2: forward
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 95px
+                  top: 52%
+                  left: 80%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Vol Dn
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_down
+                  service_data:
+                    entity_id: media_player.cruz_tv
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 37%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Mute
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_mute
+                  service_data:
+                    entity_id: media_player.cruz_tv
+                    is_volume_muted: true
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 37%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Vol Up
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_up
+                  service_data:
+                    entity_id: media_player.cruz_tv
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 37%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Ch Dn
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: chandown
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 41.5%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Ch Prev
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: prev
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 41.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Ch Up
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: chanup
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 41.5%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Red
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: red
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 50px
+                  top: 61.5%
+                  left: 20%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Green
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: green
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 61.5%
+                  left: 40.7%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Yellow
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: yellow
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 61.5%
+                  left: 59.9%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Blue
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: blue
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 61.5%
+                  left: 80%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 1
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: 1
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 65.5%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 2
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: 2
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 65.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 3
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: 3
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 65.5%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 4
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: 4
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 70.2%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 5
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: 5
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 70.2%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 6
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: 6
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 70.2%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 7
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: 7
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 74.8%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 8
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: 8
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 74.8%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 9
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: 9
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 74.8%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 0
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.cruz_dtv
+                    command: 0
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 79.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Netflix
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.cruz_tv
+                    source: Netflix
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 84.2%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Disney+
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.cruz_tv
+                    source: Disney Plus
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 84.2%
+                  left: 70%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Hulu
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.cruz_tv
+                    source: Hulu
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 89.7%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: JW Broadcasting
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.cruz_tv
+                    source: JW Broadcasting
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 89.7%
+                  left: 70%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Prime Video
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.cruz_tv
+                    source: Prime Video
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 95.2%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: HBO Max
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.cruz_tv
+                    source: HBO Max
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 95.2%
+                  left: 70%
+                  border: solid 0px gray
+            image: /local/remotes/uni_cruz_tv.jpg?v=2
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgb(16,30,36);
+                  top: -55px;
+                  margin-bottom: -55px;
+                }
+  - title: TV - Josh's Rm
+    path: tv-josh
+    visible:
+      - user: e3947a74b2a141e9ab708c565
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:button-card'
+            size: 25px
+            icon: 'mdi:close'
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/0
+            styles:
+              card:
+                - width: 40px
+                - height: 40px
+                - background-color: 'rgba(255,255,255,0)'
+                - box-shadow: none
+                - position: sticky
+                - z-index: 99
+          - type: picture-elements
+            elements:
+              - type: image
+                title: LED
+                image: /local/remotes/led_2x.png
+                tap_action: none
+                hold_action: none
+                style:
+                  width: 35px
+                  top: 3.5%
+                  left: 25%
+                  border: solid 0px gray
+              - type: image
+                title: Josh's TV
+                image: /local/remotes/name_josh.png
+                tap_action: none
+                hold_action: none
+                style:
+                  width: 25%
+                  top: 3.5%
+                  left: 76.5%
+                  border: solid 0px gray
+              - type: image
+                title: Power
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.josh_tv_toggle
+                hold_action: none
+                style:
+                  width: 50px
+                  top: 3.3%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Previous
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_josh_rm
+                  service_data:
+                    command_1: back
+                    command_2: back
+                hold_action: none
+                style:
+                  width: 135px
+                  height: 50px
+                  top: 8%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                title: Home
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_tv
+                    command: home
+                hold_action: none
+                style:
+                  width: 135px
+                  height: 50px
+                  top: 8%
+                  left: 70%
+                  border: solid 0px gray
+              - type: image
+                title: Guide
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: guide
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 13%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                title: Info
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: info
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 13%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Exit
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: exit
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 13%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                title: Up
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_josh_rm
+                  service_data:
+                    command_1: up
+                    command_2: up
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 19.4%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Left
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_josh_rm
+                  service_data:
+                    command_1: left
+                    command_2: left
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 25.3%
+                  left: 26%
+                  border: solid 0px gray
+              - type: image
+                title: OK
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_josh_rm
+                  service_data:
+                    command_1: select
+                    command_2: select
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 25.3%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Right
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_josh_rm
+                  service_data:
+                    command_1: right
+                    command_2: right
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 25.3%
+                  left: 74%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Down
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_josh_rm
+                  service_data:
+                    command_1: down
+                    command_2: down
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 31.2%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Sleep
+                tap_action:
+                  action: fire-dom-event
+                  browser_mod:
+                    command: popup
+                    title: Select Sleep Time
+                    card:
+                      type: vertical-stack
+                      cards:
+                        - type: entities
+                          entities:
+                            - entity: input_select.josh_tv
+                        - type: markdown
+                          content: >
+                            {% if state_attr("timer.josh_tv", "finishes_at") !=
+                            None -%}
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Sleep Timer is set</strong>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TV will turn off at {{ as_timestamp(strptime(state_attr("timer.josh_tv", "finishes_at"), "")) | timestamp_custom('%I:%M %p') }}, if on.
+                            {%- endif %}             
+                    deviceID:
+                      - this
+                      - dashboard
+                    style:
+                      $: >
+                        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface
+                        {
+                          border-radius: 0px;
+                        }
+                      .: |
+                        :host {
+                          --mdc-theme-surface: rgba(0,0,0,0.8);
+                          --secondary-background-color: rgba(69,90,100,1);
+                          --ha-card-background: rgba(0,0,0,0.5);
+                        }
+                        :host .content {
+                          width: 90vw;
+                          height: 95vh;
+                         }
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 43px
+                  top: 30.8%
+                  left: 25.9%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Record
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: record
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 43px
+                  top: 30.8%
+                  left: 74.2%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Menu
+                tap_action:
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: menu
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 57.5%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: TV
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.josh_tv
+                    source: "Cable\_box"
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 57.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: List
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: list
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 57.5%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Back
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_josh_rm
+                  service_data:
+                    command_1: replay
+                    command_2: replay
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 46%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Stop
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: stop
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 46%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Options
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_josh_rm
+                  service_data:
+                    command_1: advance
+                    command_2: info
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 46%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Rewind
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_josh_rm
+                  service_data:
+                    command_1: rew
+                    command_2: reverse
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 95px
+                  top: 52%
+                  left: 20%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Play/Pause
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_josh_rm
+                  service_data:
+                    command_1: pause
+                    command_2: play
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 80px
+                  top: 52%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Fast-Forward
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_josh_rm
+                  service_data:
+                    command_1: ffwd
+                    command_2: forward
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 95px
+                  top: 52%
+                  left: 80%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Vol Dn
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_down
+                  service_data:
+                    entity_id: media_player.josh_tv
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 37%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Mute
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_mute
+                  service_data:
+                    entity_id: media_player.josh_tv
+                    is_volume_muted: true
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 37%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Vol Up
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_up
+                  service_data:
+                    entity_id: media_player.josh_tv
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 37%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Ch Dn
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: chandown
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 41.5%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Ch Prev
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: prev
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 41.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Ch Up
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: chanup
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 41.5%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Red
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: red
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 50px
+                  top: 61.5%
+                  left: 20%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Green
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: green
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 61.5%
+                  left: 40.7%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Yellow
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: yellow
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 61.5%
+                  left: 59.9%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Blue
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: blue
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 61.5%
+                  left: 80%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 1
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: 1
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 65.5%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 2
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: 2
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 65.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 3
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: 3
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 65.5%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 4
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: 4
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 70.2%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 5
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: 5
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 70.2%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 6
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: 6
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 70.2%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 7
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: 7
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 74.8%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 8
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: 8
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 74.8%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 9
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: 9
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 74.8%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 0
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.josh_dtv
+                    command: 0
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 79.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Netflix
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.josh_tv
+                    source: Netflix
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 84.2%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Disney+
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.josh_tv
+                    source: Disney Plus
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 84.2%
+                  left: 70%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: YouTube
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.josh_tv
+                    source: YouTube
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 89.7%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: JW Broadcasting
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.josh_tv
+                    source: JW Broadcasting
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 89.7%
+                  left: 70%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Prime Video
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.josh_tv
+                    source: Prime Video
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 95.2%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: HBO Max
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.josh_tv
+                    source: HBO Max
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 95.2%
+                  left: 70%
+                  border: solid 0px gray
+            image: /local/remotes/uni_josh_tv.jpg?v=3
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgb(16,30,36);
+                  top: -55px;
+                  margin-bottom: -55px;
+                }
+  - title: TV - Master
+    path: tv-master
+    icon: ''
+    visible:
+      - user: be77752d871b4b8fa18df6e3
+      - user: ef8551138df645acab3b193b
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:button-card'
+            size: 25px
+            icon: 'mdi:close'
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/0
+            styles:
+              card:
+                - width: 40px
+                - height: 40px
+                - background-color: 'rgba(255,255,255,0)'
+                - box-shadow: none
+                - position: sticky
+                - z-index: 99
+          - type: picture-elements
+            elements:
+              - type: image
+                title: LED
+                image: /local/remotes/led_2x.png
+                tap_action: none
+                hold_action: none
+                style:
+                  width: 35px
+                  top: 3.5%
+                  left: 25%
+                  border: solid 0px gray
+              - type: image
+                title: Master Bedroom TV
+                image: /local/remotes/name_master.png
+                tap_action: none
+                hold_action: none
+                style:
+                  width: 25%
+                  top: 3.5%
+                  left: 77%
+                  border: solid 0px gray
+              - type: image
+                title: Power
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.master_tv_toggle
+                hold_action: none
+                style:
+                  width: 50px
+                  top: 3.3%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Previous
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: back
+                hold_action: none
+                style:
+                  width: 135px
+                  height: 50px
+                  top: 8%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                title: Home
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: menu
+                hold_action: none
+                style:
+                  width: 135px
+                  height: 50px
+                  top: 8%
+                  left: 70%
+                  border: solid 0px gray
+              - type: image
+                title: Guide
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: guide
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 13%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                title: Info
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: info
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 13%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Exit
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: exit
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 13%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                title: Up
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_master
+                  service_data:
+                    command_1: up
+                    codeset: 3
+                    code: 8
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 19.4%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Left
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_master
+                  service_data:
+                    command_1: left
+                    codeset: 3
+                    code: 1
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 25.3%
+                  left: 26%
+                  border: solid 0px gray
+              - type: image
+                title: OK
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_master
+                  service_data:
+                    command_1: select
+                    codeset: 3
+                    code: 2
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 25.3%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                title: Right
+                image: /local/remotes/btn.png
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_master
+                  service_data:
+                    command_1: right
+                    codeset: 3
+                    code: 7
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 25.3%
+                  left: 74%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Down
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_master
+                  service_data:
+                    command_1: down
+                    codeset: 3
+                    code: 0
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 70px
+                  top: 31.2%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Sleep
+                tap_action:
+                  action: fire-dom-event
+                  browser_mod:
+                    command: popup
+                    title: Select Sleep Time
+                    card:
+                      type: vertical-stack
+                      cards:
+                        - type: entities
+                          entities:
+                            - entity: input_select.master_tv
+                        - type: markdown
+                          content: >
+                            {% if state_attr("timer.master_tv", "finishes_at")
+                            != None -%}
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Sleep Timer is set</strong>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TV will turn off at {{ as_timestamp(strptime(state_attr("timer.master_tv", "finishes_at"), "")) | timestamp_custom('%I:%M %p') }}, if on.
+                            {%- endif %}             
+                    deviceID:
+                      - this
+                      - dashboard
+                    style:
+                      $: >
+                        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface
+                        {
+                          border-radius: 0px;
+                        }
+                      .: |
+                        :host {
+                          --mdc-theme-surface: rgba(0,0,0,0.8);
+                          --secondary-background-color: rgba(69,90,100,1);
+                          --ha-card-background: rgba(0,0,0,0.5);
+                        }
+                        :host .content {
+                          width: 90vw;
+                          height: 95vh;
+                         }
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 43px
+                  top: 30.8%
+                  left: 25.9%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Record
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: record
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 43px
+                  top: 30.8%
+                  left: 74.2%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Vol Dn
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_down
+                  service_data:
+                    entity_id: media_player.master_tv
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 37%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Mute
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_mute
+                  service_data:
+                    entity_id: media_player.master_tv
+                    is_volume_muted: true
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 37%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Vol Up
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_up
+                  service_data:
+                    entity_id: media_player.master_tv
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 37%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Ch Dn
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: chandown
+                hold_action: none
+                style:
+                  width: 85px
+                  height: 50px
+                  top: 41.5%
+                  left: 23.5%
+                  border: solid 0px red
+              - type: image
+                image: /local/remotes/btn.png
+                title: Ch Prev
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: prev
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 41.5%
+                  left: 50%
+                  border: solid 0px red
+              - type: image
+                image: /local/remotes/btn.png
+                title: Ch Up
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: chanup
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 41.5%
+                  left: 76%
+                  border: solid 0px red
+              - type: image
+                image: /local/remotes/btn.png
+                title: Back
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: replay
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 46%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Stop
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_master
+                  service_data:
+                    command_1: stop
+                    codeset: 2
+                    code: 9
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 46%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Options
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: advance
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 46%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Rewind
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_master
+                  service_data:
+                    command_1: rew
+                    codeset: 2
+                    code: 1
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 95px
+                  top: 52%
+                  left: 20%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Play/Pause
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_master
+                  service_data:
+                    command_1: pause
+                    codeset: 2
+                    code: 2
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 80px
+                  top: 52%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Fast-Forward
+                tap_action:
+                  action: call-service
+                  service: script.tv_dual_keys_master
+                  service_data:
+                    command_1: ffwd
+                    codeset: 2
+                    code: 0
+                hold_action: none
+                style:
+                  width: 50px
+                  height: 95px
+                  top: 52%
+                  left: 80%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Input
+                tap_action:
+                  action: call-service
+                  service: script.master_tv_source
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 57.5%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Active
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: active
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 57.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: List
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: list
+                hold_action: none
+                style:
+                  width: 75px
+                  height: 50px
+                  top: 57.5%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Red
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: red
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 50px
+                  top: 61.5%
+                  left: 20%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Green
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: green
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 61.5%
+                  left: 40.7%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Yellow
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: yellow
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 61.5%
+                  left: 59.9%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Blue
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: blue
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 61.5%
+                  left: 80%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 1
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: 1
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 65.5%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 2
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: 2
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 65.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 3
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: 3
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 65.5%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 4
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: 4
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 70.2%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 5
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: 5
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 70.2%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 6
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: 6
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 70.2%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 7
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: 7
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 74.8%
+                  left: 23%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 8
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: 8
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 74.8%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 9
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: 9
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 74.8%
+                  left: 76%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: 0
+                tap_action:
+                  action: call-service
+                  service: remote.send_command
+                  service_data:
+                    entity_id: remote.master_dtv
+                    command: 0
+                hold_action: none
+                style:
+                  width: 55px
+                  height: 45px
+                  top: 79.5%
+                  left: 50%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Netflix
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.master_tv
+                    source: Netflix
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 84.2%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Disney+
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.master_tv
+                    source: Disney+
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 84.2%
+                  left: 70%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Hulu
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.master_tv
+                    source: Hulu
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 89.7%
+                  left: 30%
+                  border: solid 0px gray
+              - type: image
+                image: /local/remotes/btn.png
+                title: Prime Video
+                tap_action:
+                  action: call-service
+                  service: media_player.select_source
+                  service_data:
+                    entity_id: media_player.master_tv
+                    source: Prime Video
+                hold_action: none
+                style:
+                  width: 125px
+                  height: 50px
+                  top: 89.7%
+                  left: 70%
+                  border: solid 0px gray
+            image: /local/remotes/uni_master_tv.jpg?v=3
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgb(16,30,36);
+                  top: -55px;
+                  margin-bottom: -55px;
+                }
+title: Remotes

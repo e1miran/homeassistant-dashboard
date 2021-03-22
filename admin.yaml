@@ -1,0 +1,156 @@
+background: center / cover no-repeat fixed  url('/local/lovelace/bg_long.png?v=1')
+kiosk_mode:
+  mobile_settings:
+    hide_header: true
+views:
+  - icon: 'mdi:tools'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:button-card'
+            size: 25px
+            icon: 'mdi:close'
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/0
+            styles:
+              card:
+                - width: 40px
+                - height: 40px
+                - background-color: 'rgba(255,255,255,0)'
+                - box-shadow: none
+                - margin-bottom: '-25px'
+              icon:
+                - margin-left: px
+          - type: 'custom:homekit-card'
+            home: false
+            title: Home
+            useBrightness: true
+            useTemperature: false
+            titleColor: '#FFF'
+            statePositionTop: true
+            style: |
+              :host {
+                --tile-background: rgba(255, 255, 255, 0.10);
+                --tile-border-radius: 12px;
+                --tile-width: 100px;
+                --tile-height: 100px;
+                --tile-on-background: rgba(255, 255, 255, 0.7);
+
+                --tile-name-text-color: rgba(255, 255, 255, 0.8);
+                --tile-on-name-text-color: rgba(0, 0, 0, 1);
+
+                --tile-state-text-color: rgba(255, 255, 255, 0.8);
+                --tile-on-state-text-color: rgba(0, 0, 0, 1);
+
+                --tile-state-changed-text-color: rgb(134, 134, 134);
+                --tile-unavailable-state-text-color: rgba(255, 255, 255, 1);
+
+                --tile-value-text-color: rgba(255, 0, 0, 1);
+
+
+                --tile-icon-color: rgba(255, 255, 255, 0.8);
+                --tile-on-icon-color: rgba(255,165,0,1.0);
+                /* #f7d959; */
+                font-family: Arial;
+              }
+              homekit-button .icon.climate {
+                 background-color: rgba(255,165,0,1.0) !important;
+              }
+              .hideState .state {
+                visibility:hidden !important;
+              }
+            entities:
+              - title: Notification & Alert Control
+                entities:
+                  - entity: input_boolean.door_motion_alert
+                    name: Door Motion Alert
+                    icon: 'mdi:alert'
+                    hold_action:
+                      action: none
+                  - entity: input_boolean.garage_open_alert
+                    name: Garage Open Alert
+                    icon: 'mdi:alert'
+                    hold_action:
+                      action: none
+          - type: markdown
+            content: '### System Monitoring'
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgba(0,0,0,0);
+                  box-shadow: none;
+                  padding: 0px;
+                  margin-bottom: -35px;
+                  top: -20px;
+                  left: 5px;
+                }
+          - type: entities
+            entities:
+              - entity: sensor.uptime
+                name: 'HA: Last Restart'
+              - entity: sensor.last_boot
+                name: 'Server: Last Reboot'
+              - entity: sensor.cpu_temp
+                icon: 'mdi:thermometer'
+                name: 'Server: CPU Temp'
+              - entity: sensor.disk_free_home
+                name: 'Server: Disk Free Space'
+              - entity: sensor.memory_free
+                name: 'Server: Memory Free'
+              - entity: switch.adguard_protection
+              - entity: switch.adguard_filtering
+              - entity: switch.adguard_safe_browsing
+              - entity: switch.adguard_safe_search
+              - entity: switch.adguard_parental_control
+            state_color: true
+            card_mod:
+              style: |
+                ha-card {
+                  width: 92%;
+                  margin: auto;
+                  border-radius: 12px;
+                  background: rgba(255,255,255,0.1);
+                  color: white;
+                  --paper-item-icon-color: white;
+                  margin-bottom: 15px;
+                }
+            show_header_toggle: false
+          - type: markdown
+            content: '### Presence Tracking'
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgba(0,0,0,0);
+                  box-shadow: none;
+                  padding: 0px;
+                  margin-bottom: -35px;
+                  top: -20px;
+                  left: 5px;
+                }
+          - type: 'custom:icloud3-event-log-card'
+            card_mod:
+              style: |
+                ha-card {
+                  width: 88%;
+                  margin: auto;
+                  border-radius: 12px;
+                  background: rgba(0,0,0,0.2);
+                  color: white;
+                  margin-bottom: 15px;
+                  padding: 5px;
+                }
+                #title {
+                  visibility: hidden;
+                }
+                #title:after {
+                  visibility: visible;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  font-size: 16px;
+                  font-weight: bold;
+                  content: "Event Log";
+                }
+title: Admin

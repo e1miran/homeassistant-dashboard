@@ -1,0 +1,337 @@
+background: center / cover no-repeat fixed  url('/local/lovelace/bg_long.png?v=1')
+kiosk_mode:
+  mobile_settings:
+    hide_header: true
+views:
+  - icon: 'mdi:music'
+    panel: false
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                size: 25px
+                icon: 'mdi:close'
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/0
+                styles:
+                  card:
+                    - width: 40px
+                    - height: 40px
+                    - background-color: 'rgba(255,255,255,0)'
+                    - box-shadow: none
+                  icon:
+                    - margin-left: px
+              - type: 'custom:gap-card'
+                height: <height>
+                size: <size>
+              - type: 'custom:button-card'
+                size: 25px
+                icon: |
+                  [[[ 
+                    if (states['media_player.entry'].state == "playing")
+                        return "mdi:cast-connected";
+                    else if (states['media_player.front_living_room'].state == "playing")
+                      return "mdi:cast-connected";
+                    else if (states['media_player.kitchen_speaker'].state == "playing")
+                      return "mdi:cast-connected";
+                    else if (states['media_player.living_rooms'].state == "playing")
+                        return "mdi:cast-connected";
+                    else if (states['media_player.office_speaker'].state == "playing")
+                        return "mdi:cast-connected";
+                    else if (states['media_player.family_room_speaker_cast'].state == "playing")
+                        return "mdi:cast-connected";
+                    else
+                        return "mdi:cast";
+                  ]]]
+                styles:
+                  card:
+                    - width: 40px
+                    - height: 40px
+                    - background-color: 'rgba(255,255,255,0)'
+                    - box-shadow: none
+                  icon:
+                    - margin-left: px
+                tap_action:
+                  action: fire-dom-event
+                  browser_mod:
+                    command: popup
+                    title: Select where to cast
+                    card:
+                      type: vertical-stack
+                      cards:
+                        - type: 'custom:mini-media-player'
+                          group: true
+                          min_volume: 5
+                          max_volume: 75
+                          entity: media_player.office_speaker
+                          name: Office
+                          tap_action:
+                            action: call-service
+                            service: input_boolean.toggle
+                            service_data:
+                              entity_id: input_boolean.office_mp
+                          hide:
+                            controls: true
+                            icon: false
+                            info: true
+                            power: true
+                            progress: true
+                            state_label: false
+                            volume_level: false
+                        - type: 'custom:mini-media-player'
+                          name: Kitchen
+                          group: true
+                          min_volume: 5
+                          max_volume: 75
+                          tap_action:
+                            action: call-service
+                            service: input_boolean.toggle
+                            service_data:
+                              entity_id: input_boolean.kitchen_mp
+                          hide:
+                            controls: true
+                            icon: false
+                            info: true
+                            power: true
+                            progress: true
+                            state_label: false
+                            volume_level: false
+                          entity: media_player.kitchen_speaker
+                        - type: 'custom:mini-media-player'
+                          group: true
+                          min_volume: 5
+                          max_volume: 75
+                          name: Family Room
+                          tap_action:
+                            action: call-service
+                            service: input_boolean.toggle
+                            service_data:
+                              entity_id: input_boolean.familyroom_mp
+                          hide:
+                            controls: true
+                            icon: false
+                            info: true
+                            power: true
+                            progress: true
+                            state_label: false
+                            volume_level: false
+                          entity: media_player.family_room_speaker_cast
+                        - type: 'custom:mini-media-player'
+                          entity: media_player.front_living_room
+                          group: true
+                          min_volume: 5
+                          max_volume: 75
+                          name: Front Room
+                          tap_action:
+                            action: call-service
+                            service: input_boolean.toggle
+                            service_data:
+                              entity_id: input_boolean.frontroom_mp
+                          hide:
+                            controls: true
+                            icon: false
+                            info: true
+                            power: true
+                            progress: true
+                            state_label: false
+                            volume_level: false
+                        - type: 'custom:mini-media-player'
+                          name: Living Rooms
+                          group: true
+                          min_volume: 5
+                          max_volume: 75
+                          tap_action:
+                            action: call-service
+                            service: input_boolean.toggle
+                            service_data:
+                              entity_id: input_boolean.livingrooms_gp
+                          hide:
+                            controls: true
+                            icon: false
+                            info: true
+                            power: true
+                            progress: true
+                            state_label: false
+                            volume_level: false
+                          entity: media_player.living_rooms
+                        - type: 'custom:mini-media-player'
+                          entity: media_player.entry
+                          group: true
+                          min_volume: 5
+                          max_volume: 75
+                          name: Entry
+                          tap_action:
+                            action: call-service
+                            service: input_boolean.toggle
+                            service_data:
+                              entity_id: input_boolean.entry_gp
+                          hide:
+                            controls: true
+                            icon: false
+                            info: true
+                            power: true
+                            progress: true
+                            state_label: false
+                            volume_level: false
+                    deviceID:
+                      - this
+                      - dashboard
+                    style:
+                      $: >
+                        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface
+                        {
+                          border-radius: 0px;
+                        }
+                      .: |
+                        :host {
+                          --mdc-theme-surface: rgba(0,0,0,0.8);
+                          --secondary-background-color: rgba(69,90,100,1);
+                          --ha-card-background: rgba(0,0,0,0.5);
+                        }
+                        :host .content {
+                          width: 90vw;
+                          height: 95vh;
+                         }
+          - type: picture-glance
+            entities: []
+            camera_image: camera.album_art
+            tap_action:
+              action: none
+            hold_action:
+              action: none
+            card_mod:
+              style: |
+                ha-card {
+                  width: 98%;
+                  margin: auto;
+                  border-radius: 0;
+                  position: relative;
+                }
+                .box {
+                  background: rgba(255,255,255,0) !important;
+                }
+          - type: 'custom:mod-card'
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgba(255, 255, 255, 0.0);
+                  border-radius: 0;
+                  box-shadow: none;
+                  position: relative;
+                  top: -10px;
+                 }
+            card:
+              type: 'custom:html-template-card'
+              ignore_line_breaks: true
+              content: |
+                <style>
+                  .title {
+                    display: block;
+                    font-weight: 500;
+                    font-size: 1.2em;
+                    text-align: center;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis; !important;
+                  }
+                  .artist {
+                    display: block;
+                    text-align: center;     
+                  }
+                </style>
+                <div style="">
+                {% if state_attr("media_player.music", "media_playlist") -%}
+                  <h3>{{ state_attr('media_player.music', 'media_playlist') }}</h3>
+                  <span class="title">{{ state_attr('media_player.music', 'media_title') }}</br></span>
+                  {% if state_attr("media_player.music", "media_artist") -%}
+                    <span class="artist">{{ state_attr('media_player.music', 'media_artist') }}</span>
+                  {%- else -%}
+                    <center>&nbsp;</center>
+                  {%- endif %}
+                {%- else -%}
+                  <h3>&nbsp;</h3>
+                  <span class="title">&nbsp;</br></span>
+                  <span class="artist">&nbsp;</span>    
+                {%- endif %}
+                </div>
+          - type: 'custom:mini-media-player'
+            entity: media_player.music
+            toggle_power: true
+            artwork: none
+            source: full
+            name: Music Stream
+            group: true
+            scale: '1.25'
+            info: scroll
+            hide:
+              info: true
+              icon: true
+              name: true
+              runtime: true
+              volume: true
+              power: false
+              controls: true
+              progress: true
+            style: |
+              ha-card {
+                float:right;
+                position: relative;
+                top: -140px;
+              }
+          - type: 'custom:mini-media-player'
+            entity: media_player.music
+            toggle_power: true
+            artwork: none
+            source: full
+            name: Music Stream
+            info: scroll
+            group: true
+            scale: '1.25'
+            hide:
+              info: true
+              icon: true
+              name: true
+              runtime: false
+              volume: true
+              power: true
+              source: true
+              controls: true
+            card_mod:
+              style: |
+                ha-card {
+                  width: 93%;
+                  margin: auto;
+                  position: relative;
+                  top: -100px;
+                }
+          - type: 'custom:mini-media-player'
+            entity: media_player.music
+            toggle_power: true
+            artwork: none
+            source: full
+            name: Music Stream
+            info: scroll
+            group: true
+            scale: '1.25'
+            hide:
+              info: true
+              icon: true
+              name: true
+              volume: true
+              power: true
+              source: true
+              progress: true
+              play_pause: true
+              play_stop: false
+            card_mod:
+              style: |
+                ha-card {
+                  margin-left: auto;
+                  position: relative;
+                  top: -100px;
+                }
+title: Music

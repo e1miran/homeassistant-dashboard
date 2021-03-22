@@ -1,0 +1,125 @@
+background: center / cover no-repeat fixed  url('/local/lovelace/bg_long.png?v=1')
+kiosk_mode:
+  mobile_settings:
+    hide_header: true
+views:
+  - icon: 'mdi:video-image'
+    panel: false
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:button-card'
+            size: 25px
+            icon: 'mdi:close'
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/0
+            styles:
+              card:
+                - width: 40px
+                - height: 40px
+                - background-color: 'rgba(255,255,255,0)'
+                - box-shadow: none
+              icon:
+                - margin-left: px
+          - type: markdown
+            content: '### Front'
+            style: |
+              ha-card {
+                margin-bottom: -7px;
+                background: rgba(255, 255, 255, 0.0);
+                border-radius: 0px;
+                box-shadow: none;
+                color: white; 
+                font-family: Arial;
+               }
+          - type: 'custom:swipe-card'
+            reset_after: 20
+            parameters:
+              speed: 300
+              effect: fade
+              autoplay:
+                delay: 3070
+            cards:
+              - type: picture-glance
+                aspect_ratio: '16:9'
+                camera_image: camera.driveway
+                camera_view: live
+                entities: []
+                title: Driveway
+              - type: picture-glance
+                aspect_ratio: '16:9'
+                camera_image: camera.front_door
+                camera_view: live
+                entities: []
+                title: Front Door
+              - type: picture-glance
+                aspect_ratio: '16:9'
+                camera_image: camera.corner
+                camera_view: live
+                entities: []
+                title: Front Lawn
+              - type: picture-glance
+                aspect_ratio: '16:9'
+                camera_image: camera.garage
+                camera_view: live
+                entities: []
+                title: Garage
+          - type: markdown
+            content: '### Rear'
+            style: |
+              ha-card {
+                margin-top: -7px;
+                margin-bottom: -7px;
+                background: rgba(255, 255, 255, 0.0);
+                border-radius: 0px;
+                box-shadow: none;
+                color: white; 
+                font-family: Arial;
+               }
+          - type: 'custom:swipe-card'
+            reset_after: 20
+            parameters:
+              speed: 300
+              effect: fade
+              autoplay:
+                delay: 3010
+            cards:
+              - type: picture-glance
+                aspect_ratio: '16:9'
+                camera_image: camera.right_side
+                camera_view: live
+                entities: []
+                title: Right Side
+              - type: picture-glance
+                aspect_ratio: '16:9'
+                camera_image: camera.center_right
+                camera_view: live
+                entities: []
+                title: Center Right
+              - type: picture-glance
+                aspect_ratio: '16:9'
+                camera_image: camera.lanai
+                camera_view: live
+                entities: []
+                title: Lanai
+              - type: picture-glance
+                aspect_ratio: '16:9'
+                camera_image: camera.center
+                camera_view: live
+                entities: []
+                title: Center
+              - type: picture-glance
+                aspect_ratio: '16:9'
+                camera_image: camera.back
+                camera_view: live
+                entities: []
+                title: Back
+              - type: picture-glance
+                aspect_ratio: '16:9'
+                camera_image: camera.left_side
+                camera_view: live
+                entities: []
+                title: Left Side
+title: Cameras

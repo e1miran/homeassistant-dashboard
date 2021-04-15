@@ -74,7 +74,7 @@ views:
                       ]]]
                     service_data:
                       entity_id: alarm_control_panel.abode_alarm
-                      code: 1914
+                      code: XXXX
                   styles:
                     icon:
                       - left: 15px
